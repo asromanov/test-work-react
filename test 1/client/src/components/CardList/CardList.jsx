@@ -11,7 +11,7 @@ export default function CardList() {
   }, []);
   return (
     <div>
-      <h1 style={{ textAlign: 'center' }}>Cards List</h1>
+      <h1 style={{ textAlign: 'center' }}>Список компонентов</h1>
       <div className="d-flex flex-row justify-content-center mb-3">
         {data?.map((el) => <CardItem key={uuidv4()} item={el} />)}
       </div>

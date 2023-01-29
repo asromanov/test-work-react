@@ -15,7 +15,7 @@ export default configureStore({
     detail: detailReducer,
     detailError: detailErrorReducer,
   },
-  middleware: (mid) => [...mid(), sagaMiddleware],
+  middleware: (getDefaultMiddleware) => [...getDefaultMiddleware(), sagaMiddleware],
 });
 
 sagaMiddleware.run(mySagas);

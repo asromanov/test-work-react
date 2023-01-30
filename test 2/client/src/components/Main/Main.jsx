@@ -63,7 +63,7 @@ export default function Main() {
 
               <TableBody>
                 {services?.map((row) => (
-                  <StyledTableRow key={row.name}>
+                  <StyledTableRow key={row.id}>
                     <StyledTableCell component="th" scope="row">
                       <NavLink to={`/${row.id}/details`} style={{ textDecoration: 'none' }}>{row.name}</NavLink>
                     </StyledTableCell>

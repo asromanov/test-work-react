@@ -12,7 +12,7 @@ export default function NavBar() {
       <AppBar position="static">
         <Toolbar style={{ display: 'flex', justifyContent: 'space-between' }}>
           <Button onClick={() => navigate('/')} color="inherit">Календарь</Button>
-          <Button onClick={() => navigate('/newevent')} color="inherit">Добавить мероприятие</Button>
+          <Button onClick={() => navigate('/event')} color="inherit">Добавить мероприятие</Button>
         </Toolbar>
       </AppBar>
     </Box>

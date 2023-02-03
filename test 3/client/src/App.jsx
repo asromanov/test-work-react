@@ -11,7 +11,7 @@ function App() {
       <NavBar />
       <Routes>
         <Route path="/" element={<MyCalendar />} />
-        <Route path="/newevent" element={<AddEvent />} />
+        <Route path="/event" element={<AddEvent />} />
       </Routes>
     </Container>
   );

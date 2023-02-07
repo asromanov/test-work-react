@@ -16,6 +16,8 @@ import { setActiveEdit } from '../../redux/slices/modalEditSlice';
 import EditModalCard from '../EditModalCard/EditModalCard';
 import { setReminderEvent } from '../../redux/slices/reminderEventSlice';
 import ReminderModal from '../ReminderModal/ReminderModal';
+import { setNotificationEvent } from '../../redux/slices/notificationSlice';
+import NotificationModal from '../NotificatonModal/NotificationModal';
 
 moment.locale('ru');
 
@@ -23,6 +25,7 @@ const localizer = momentLocalizer(moment);
 
 export default function MyCalendar() {
   const [open, setOpen] = useState(false);
+  const [notification, setNotification] = useState(false);
   const activeEdit = useSelector((store) => store.activeEdit);
   const events = useSelector((store) => store.events);
   const dispatch = useDispatch();
@@ -34,6 +37,11 @@ export default function MyCalendar() {
       if (ev?.id) {
         dispatch(setReminderEvent(ev));
         setOpen((prev) => !prev);
+      }
+      const startNotification = events.find((el) => el.start.toString().match(/\d/gmi).join('') === now.toString().match(/\d/gmi).join(''));
+      if (startNotification?.id) {
+        dispatch(setNotificationEvent(startNotification));
+        setNotification((prev) => !prev);
       }
     }, 1000);
   }, [events]);
@@ -78,6 +86,8 @@ export default function MyCalendar() {
         && <EditModalCard />}
       {open
         && <ReminderModal open={open} setOpen={setOpen} />}
+      {notification
+        && <NotificationModal open={notification} setOpen={setNotification} />}
     </Container>
   );
 }

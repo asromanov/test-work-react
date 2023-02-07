@@ -9,12 +9,14 @@ import eventsReducer from './slices/eventsSlice';
 import activeEditReducer from './slices/modalEditSlice';
 import oneEventReducer from './slices/oneEventSlice';
 import reminderEventReducer from './slices/reminderEventSlice';
+import notificationEventReducer from './slices/notificationSlice';
 
 const rootReducer = combineReducers({
   events: eventsReducer,
   activeEdit: activeEditReducer,
   oneEvent: oneEventReducer,
   reminder: reminderEventReducer,
+  notificationEvent: notificationEventReducer,
 });
 
 const persistConfig = {

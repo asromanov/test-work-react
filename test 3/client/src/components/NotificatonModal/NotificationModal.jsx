@@ -6,8 +6,8 @@ import { useSelector } from 'react-redux';
 
 const Alert = React.forwardRef((props, ref) => <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />);
 
-export default function ReminderModal({ open, setOpen }) {
-  const reminderEvent = useSelector((store) => store.reminder);
+export default function NotificationModal({ open, setOpen }) {
+  const notificationEvent = useSelector((store) => store.notificationEvent);
   const handleClose = (event, reason) => {
     if (reason === 'clickaway') {
       return;
@@ -25,16 +25,12 @@ export default function ReminderModal({ open, setOpen }) {
         key={'top' + 'center'}
         autoHideDuration={6000}
       >
-        <Alert onClose={handleClose} severity="info" sx={{ width: '100%' }}>
-          У вас запланировано мероприятие
+        <Alert onClose={handleClose} severity="success" sx={{ width: '100%' }}>
+          Мероприятие
           {' '}
-          "
-          {reminderEvent?.title}
-          "
+          {notificationEvent.title}
           {' '}
-          на
-          {' '}
-          {reminderEvent?.reminder.toLocaleString()}
+          началось!
         </Alert>
       </Snackbar>
     </Stack>

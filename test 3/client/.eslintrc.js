@@ -23,5 +23,7 @@ module.exports = {
     'import/no-extraneous-dependencies': 0,
     'no-console': 0,
     'react/no-unescaped-entities': 0,
+    'react/jsx-props-no-spreading': 0,
+    "no-useless-concat": 0,
   },
 };

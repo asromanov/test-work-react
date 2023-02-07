@@ -8,10 +8,7 @@ const Alert = React.forwardRef((props, ref) => <MuiAlert elevation={6} ref={ref}
 
 export default function NotificationModal({ open, setOpen }) {
   const notificationEvent = useSelector((store) => store.notificationEvent);
-  const handleClose = (event, reason) => {
-    if (reason === 'clickaway') {
-      return;
-    }
+  const handleClose = () => {
     setOpen(false);
   };
 
@@ -21,7 +18,6 @@ export default function NotificationModal({ open, setOpen }) {
         anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
         open={open}
         onClose={handleClose}
-        message="I love snacks"
         key={'top' + 'center'}
         autoHideDuration={6000}
       >

@@ -31,7 +31,7 @@ export default function MyCalendar() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    setInterval(() => {
+    const timer = setInterval(() => {
       const now = new Date();
       const ev = events.find((el) => el.reminder.toString().match(/\d/gmi).join('') === now.toString().match(/\d/gmi).join(''));
       if (ev?.id) {
@@ -44,6 +44,9 @@ export default function MyCalendar() {
         setNotification((prev) => !prev);
       }
     }, 1000);
+    return () => {
+      clearInterval(timer);
+    };
   }, [events]);
 
   // смена языка календаря

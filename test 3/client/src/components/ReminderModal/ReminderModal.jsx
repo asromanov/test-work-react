@@ -21,7 +21,7 @@ export default function ReminderModal({ open, setOpen }) {
         key={'top' + 'center'}
         autoHideDuration={6000}
       >
-        <Alert onClose={handleClose} severity="info" sx={{ width: '100%' }}>
+        <Alert onClose={handleClose} severity="warning" sx={{ width: '100%' }}>
           У вас запланировано мероприятие
           {' '}
           "
